@@ -100,8 +100,8 @@ function Reload() { //重载脚本
     var d = document, s = d.getElementById('autopaint'); //获取脚本标签
     (d.head || d.body).removeChild(s); //移除脚本标签
     s = d.createElement('script'); //创建脚本标签
-    s.src = 'https://it5z.github.io/assets/js/autopaint.js'; //设置脚本路径
     s.setAttribute("id", "autopaint"); //设置标签ID
+    s.src = 'https://it5z.github.io/assets/js/autopaint.js'; //设置脚本路径
     (d.head || d.body).appendChild(s); //增加标签
 }
 
