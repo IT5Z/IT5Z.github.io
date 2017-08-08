@@ -95,7 +95,7 @@ function Tick() { //每一刻的操作
     id = setTimeout('Tick()', interval); //一段时间后执行刻
 }
 
-function Reload() {
+function Reload() { //重载脚本
     clearTimeout(id); //取消下一个刻
     var d = document, s = d.getElementById('autopaint'); //获取脚本标签
     (d.head || d.body).removeChild(s); //移除脚本标签
