@@ -92,7 +92,5 @@ function Tick() { //每一刻的操作
     }
 }
 
-function StartPaint() {
-    Tick(); //先执行一次刻
-    setInterval('Tick()', interval); //每隔一定时间自动执行刻
-}
+Tick(); //先执行一次刻
+setInterval('Tick()', interval); //每隔一定时间自动执行刻
