@@ -93,6 +93,7 @@ function Tick() { //每一刻的操作
 }
 
 function Reload() {
+    clearInterval(id);
     var d = document, s = d.getElementById('autopaint');
     (d.head || d.body).removeChild(s);
     s = d.createElement('script');
@@ -103,4 +104,4 @@ function Reload() {
 
 setTimeout('Reload', 900000); //一段时间后重载脚本
 Tick(); //先执行一次刻
-setInterval('Tick()', interval); //每隔一定时间自动执行刻
+var id = setInterval('Tick()', interval); //每隔一定时间自动执行刻
