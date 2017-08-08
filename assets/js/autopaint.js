@@ -36,7 +36,7 @@ var colortable = { //颜色表
     I: '46,143,175' //蓝色
 };
 
-var id;
+var id; //刻ID
 
 function getColor(x, y) { //获取颜色。画板缩放必须为1X，否则会出现错误。如果一定要观察可以开启另一个没有运行脚本的窗口。
     var c = document.getElementById('drawing-canvas'), //获取画板
@@ -96,13 +96,13 @@ function Tick() { //每一刻的操作
 }
 
 function Reload() {
-    clearTimeout(id);
-    var d = document, s = d.getElementById('autopaint');
-    (d.head || d.body).removeChild(s);
-    s = d.createElement('script');
-    s.src = 'https://it5z.github.io/assets/js/autopaint.js';
-    s.setAttribute("id", "autopaint");
-    (d.head || d.body).appendChild(s);
+    clearTimeout(id); //取消下一个刻
+    var d = document, s = d.getElementById('autopaint'); //获取脚本标签
+    (d.head || d.body).removeChild(s); //移除脚本标签
+    s = d.createElement('script'); //创建脚本标签
+    s.src = 'https://it5z.github.io/assets/js/autopaint.js'; //设置脚本路径
+    s.setAttribute("id", "autopaint"); //设置标签ID
+    (d.head || d.body).appendChild(s); //增加标签
 }
 
 setTimeout('Reload', 900000); //一段时间后重载脚本
