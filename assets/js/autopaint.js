@@ -77,8 +77,8 @@ function Tick() { //每一刻的操作
         for(var x in row[y]) { //遍历字符
             var code = row[y][x]; //获取颜色代码
             if(code != '-') {
-				var targetX = parseInt(positionX) + parseInt(x); //目标X坐标
-				var targetY = parseInt(positionY) + parseInt(y); //目标Y坐标
+                var targetX = parseInt(positionX) + parseInt(x); //目标X坐标
+                var targetY = parseInt(positionY) + parseInt(y); //目标Y坐标
                 var success = Draw(targetX, targetY, code); //按照颜色进行绘制
                 if(success) { //判断是否完成
                     console.log('已绘制' + x + ', ' + y + '代码为' + code + '的颜色' + '到' + targetX + ', ' + targetY);
@@ -90,4 +90,9 @@ function Tick() { //每一刻的操作
             break; //跳出循环
         }
     }
+}
+
+function StartPaint() {
+    Tick(); //先执行一次刻
+    setInterval('Tick()', interval); //每隔一定时间自动执行刻
 }
