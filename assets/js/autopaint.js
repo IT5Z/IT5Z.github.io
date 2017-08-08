@@ -92,5 +92,15 @@ function Tick() { //每一刻的操作
     }
 }
 
+function Reload() {
+    var d = document, s = d.getElementById('autopaint');
+    (d.head || d.body).removeChild(s);
+    s = d.createElement('script');
+    s.src = 'https://it5z.github.io/assets/js/autopaint.js';
+    s.setAttribute("id", "autopaint");
+    (d.head || d.body).appendChild(s);
+}
+
+setTimeout('Reload', 900000); //一段时间后重载脚本
 Tick(); //先执行一次刻
 setInterval('Tick()', interval); //每隔一定时间自动执行刻
