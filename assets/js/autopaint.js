@@ -36,6 +36,8 @@ var colortable = { //颜色表
     I: '46,143,175' //蓝色
 };
 
+var id;
+
 function getColor(x, y) { //获取颜色。画板缩放必须为1X，否则会出现错误。如果一定要观察可以开启另一个没有运行脚本的窗口。
     var c = document.getElementById('drawing-canvas'), //获取画板
     ctx = c.getContext('2d'); //获取画板内容
@@ -90,10 +92,11 @@ function Tick() { //每一刻的操作
             break; //跳出循环
         }
     }
-    setTimeout('Tick()', interval); //一段时间后执行刻
+    id = setTimeout('Tick()', interval); //一段时间后执行刻
 }
 
 function Reload() {
+    clearTimeout(id);
     var d = document, s = d.getElementById('autopaint');
     (d.head || d.body).removeChild(s);
     s = d.createElement('script');
